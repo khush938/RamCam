@@ -1,0 +1,157 @@
+{% load static %}
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link rel="stylesheet" media="screen" href="{% static 'main/css/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/part.css' %}">
+        <title></title>
+        <style>
+
+            body, html{
+                margin: 0px;
+                overflow: hidden;
+            }
+            /* .center {
+                position: absolute;
+                height: 100%;
+                width:100%;
+                overflow:hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+               
+            } */
+
+            .logbox{
+                /* position: absolute; */
+                width: 400px;
+                height: 370px;
+                background-color: rgb(231, 231, 231);
+                box-shadow: 5px 11px 9px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                border-radius: 10px;
+                position: absolute;
+                top: 25%;
+                left: 38%;
+                margin: 0%;
+                
+            
+            }
+
+
+        
+
+            .content{
+
+                
+                font-family:'Times New Roman', Times, serif; 
+                right:0%;
+                top: -2%;
+                position: fixed;
+                /* display: inline; */
+                margin: 0%;
+            
+            }
+            .tbox{
+                background-color: transparent;
+                height: 34px;
+                width: 75%;
+                border: 0.8px solid rgba(0, 0, 0, 0.8);
+                border-right: none;
+                border-top: none;
+                border-left: 0px;
+                padding: 4px;
+                margin: 5px;
+                font-size: 15px;
+                
+            }
+            a:link, a:visited 
+            {
+                text-decoration: none;
+            }
+            .btn:hover{
+            background-color: white;
+            color:#30afa2;
+        }
+
+        .conti {
+    height: 100%;
+    width:100%;
+    overflow:hidden;
+    display: flex;
+    
+    position:absolute;
+    top:0%;
+  
+    /* right:50%; */
+    
+}
+
+        ::placeholder {
+  color:black;
+  opacity: 0.3; /* Firefox */
+}
+
+.row{
+    position: relative;
+    right: 0%;
+}
+        </style>
+    </head>
+
+
+
+
+  
+<!-- count particles -->
+<div class="count-particles">
+    <span class="js-count-particles">--</span> particles
+  </div>
+  
+  <!-- particles.js container -->
+  <div id="particles-js"></div>
+  
+  scripts
+  <script src="{% static 'main/js/particles.js' %}"></script>
+  <script src="{% static 'main/js/app.js' %}"></script>
+  
+  <!-- stats.js -->
+  <script src="{% static 'main/js/stats.js' %}"></script>
+  <script src="{% static 'main/js/part.js' %}"></script>
+
+
+
+
+    <body>
+        <div class="center">
+            <div class="logbox">
+                <div class="content">   
+                    <div class="row">
+                        <form class="col s12" method="POST" action="" >
+                            {% csrf_token %}
+                            <div class="row" style="right: 24%;"><br>
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix" class="" >account_circle</i>
+                                    <input id="icon_prefix" type="text" name="username" placeholder="Username" style="font-size: 17.5px;" class="tbox">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12" style="right: 22%;">
+                                    <i class="material-icons prefix">fingerprint</i>
+                                    <input id="password" type="password" name="password" style="font-size: 17.5;" placeholder="Password">
+                                </div>
+                            </div>
+                            <div style="align-items: center;"><button class="btn waves-effect waves-light" type="submit" style="align-items: center;">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

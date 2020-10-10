@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{% static 'video/css/bootstrap.min.css' %}">
+	<link href="{% static 'video/css/style.css' %}" rel="stylesheet">
+	<title>RamCam</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm justify-content-center fixed-top">
+		<div class="collapse navbar-collapse w-100 order-1 order-lg-0" id="navbarNav">
+  <div class="navbar">
+  	<ul>
+  		<li>City: {{city}}</li>
+  		<li>Area: {{area}}</li>
+  	</ul>
+  </div>
+</div>
+
+<div class="d-flex w-100 order-0">
+        <div class="w-100">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <a  href="{% url 'home' %}" style="text-decoration: none; color:antiquewhite;"><span class="navbar-brand text-center w-100" id="title">RamCam</span></a>
+        <span class="w-100"></span>
+    </div>
+    <span class="w-100"></span>
+
+</nav>
+
+ <div class="container">
+	<div class="video-container">	
+		<video class="responsive-video" alt="camera frame" width="1080" height="650" controls>
+			<source src="{% static 'video/video/output1.mp4' %}" type="video/mp4">
+		</video>
+	</div>
+</div>
+</body>
+</html>

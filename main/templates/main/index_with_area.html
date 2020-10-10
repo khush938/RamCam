@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <link rel="stylesheet" media="screen" href="{% static 'main/css/style.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'main/css/part.css' %}">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <title>RamCam</title>
+  
+
+  <script>
+$( document ).ready(function() {
+  $('.toast').toast('show');
+});
+    </script>
+
+
+</head>
+<body>
+
+<!-- count particles -->
+<div class="count-particles">
+  <span class="js-count-particles"></span> 
+</div>
+
+<!-- particles.js container -->
+<div id="particles-js"></div>
+
+
+<script src="{% static 'main/js/particles.js' %}"></script>
+      <script src="{% static 'main/js/app.js' %}"></script>
+
+<!-- stats.js -->
+<script src="{% static 'main/js/stats.js' %}"></script>
+      <script src="{% static 'main/js/part.js' %}"></script>
+
+<!-- <div class="title"><B style="margin-bottom: 0px;">Ram</B><br><B style="margin-top: 0px;">Cam</B></div> -->
+<div class="title"><a href="{% url 'home' %}" style="text-decoration:none; color:antiquewhite"!important><b>RamCam</b></a><button class="btn btn-primary logout" data-toggle="modal" data-target="#myModal">LOGOUT</button></div>
+
+
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header"><p style="align-items: center; align-self: center; font-size: 25px; text-align: center; font-family: 'Times New Roman', Times, serif;">Are you sure you want to log out?</p>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="modal-body" style="align-items: center;">
+      <a href="{% url 'logout' %}">
+        <button type="button" class="btn btn-outline-primary">
+          Yes
+        </button>
+      </a>
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+ </div>   
+
+
+
+<button type="button" class="btn btn-primary btn1"  aria-haspopup="true" aria-expanded="false" style="width:20%; height:60px;border-radius: 30px;">       
+  {{ city }}
+</button>
+<button type="button" class="btn btn-primary dropdown-toggle btn2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:20%; height:60px; border-radius: 30px; ">
+  AREA
+</button>
+<div class="dropdown-menu dropdown-menu-right">
+  {% for area in areas %}
+    <a class="dropdown-item" href="{% url 'video_feed' city area.area_name %}">{{ area }}</a>
+  {% endfor %}
+</div>
+<div class="quote">
+  <p style="font-size: 2.5vw;">"Lorem Ipsum: I solemly Swear <br>that I am upto no Good!"<p>
+</div>
+
+
+<!-- // background-color:  #f7f7f7 ; color: #0275d8; border:2px solid  #0275d8; -->

@@ -1,0 +1,41 @@
+*{
+	box-sizing: border-box;
+}
+
+#box1{
+	
+	border:2px solid black;
+	height:480px;
+	width: 480px;
+	margin-top: 60px;
+	margin-left: 290px;
+}
+
+
+ .navbar{
+	position: relative;
+	background-color: #052236;
+}
+
+.navbar-expand-sm{
+	background-color: #052236;
+}
+
+
+#title{
+	color:#fff;
+	font-size: 70px;
+	
+}
+.navbar{
+	height:100px;
+}
+ul{
+	list-style: none;
+}
+li{
+	font-size: 25px;
+	color:#fff;
+}
+
+

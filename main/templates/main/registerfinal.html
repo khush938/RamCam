@@ -1,0 +1,127 @@
+{% load static %}
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'main/css/materialize.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <title>RamCam</title>
+        <style>
+
+            body, html{
+                margin: 0px;
+                overflow: hidden;
+                    }
+
+                    body {
+  background-image: url("{% static 'main/images/bg.jfif' %}");
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+            .center {
+            height: 100%;
+            width:100%;
+            overflow:hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* background-color:#0877d8; */
+                    }
+
+            .logbox{
+                width: 400px;
+                height: 750px;
+                background-color: #e7e7e7;
+                box-shadow: 5px 11px 9px 0px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                border-radius: 10px;
+                    }
+            .content
+            {
+                margin: 25px;
+                font-family:'Times New Roman', Times, serif; 
+            
+            }
+            .tbox{
+                background-color: transparent;
+                height: 34px;
+                width: 75%;
+                border: 0.8px solid rgba(0, 0, 0, 0.8);
+                border-right: none;
+                border-top: none;
+                border-left: 0px;
+                padding: 4px;
+                margin: 5px;
+                font-size: 15px;
+            }
+            a:link, a:visited {
+            text-decoration: none;
+            }
+        
+
+        .btn:hover{
+            background-color: white;
+            color:#30afa2;
+        }
+
+        .place{
+            align-items: left;
+            text-align: left;
+            font-size: 50px;
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class="center">
+            <div class="logbox">
+                <div class="content">   
+                    <div class="row">
+                        <form method="POST"class="col s12" action="">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    {{ form.username }}
+                                    <span class="helper-text place" data-error="wrong" data-success="right">Username</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">email</i>
+                                    {{ form.email }}
+                                    <span class="helper-text place" data-error="wrong" data-success="right">Email</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">fingerprint</i>
+                                    {{ form.password1 }}
+                                    <span class="helper-text place" data-error="wrong" data-success="right"d>Enter your passwrod</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">fingerprint</i>
+                                    {{ form.password2 }}
+                                    <span class="helper-text place" data-error="wrong" data-success="right">Re-enter your password</span>
+                                </div>
+                            </div>
+                            <!-- <div style="align-items: center;"><button class="btn waves-effect waves-light" type="submit">Submit</button></div> -->
+                            <div style="align-items: center;"><button class="btn" type="submit" >Submit</button></div>
+
+                            {% for message in messages %}
+                                <script>M.toast({html: "{{ message }}", classes: 'rounded green'});</script>
+                            {% endfor %}
+                            <p>{{ form.errors }}</p>
+                        </form>
+                        <div style="text-align: center; font-size: 23px;"><p>&nbsp;Already a user? Click <a href="{% url 'login' %}">here </a>to log in.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
